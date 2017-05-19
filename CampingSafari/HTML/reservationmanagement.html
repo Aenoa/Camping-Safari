@@ -1,0 +1,707 @@
+﻿<section id="employe">
+    <div class="container">
+        <div class="col-md-12">
+            <div class="block">
+                <a class="btn " id="add" ng-click="checktoggleBlock()"><img src="../IMAGES/logo/reservationCheck.png" /><br />Annuler une réservation</a>
+                <a class="btn " id="delete" ng-click="deletetoggleBlock()"><img src="../IMAGES/logo/reservationSupprimer.png" /><br />Annuler une réservation</a>
+                <a class="btn " id="remove" ng-click="removetoggleBlock()"><img src="../IMAGES/logo/reservationModifier.png" /><br />Modifier réservation</a>
+                <a class="btn " id="search" ng-click="searchtoggleBlock()"><img src="../IMAGES/logo/reservationRecherche.png" /><br />Rechercher réservation</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Annuler réservation -->
+
+<div class="supprimer" ng-hide="supprimer" ng-class="{}">
+    <div class="row">
+        <div class="col-lg-10 col-md-9">
+            <!--    <div class="col-lg-1"><img src="img/ajout_contact.png" alt=""></div>-->
+            <h1 class="titre-contact">Annuler une réservation</h1>
+        </div>
+    </div>
+
+    <section id="annuler">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tableaudebord">
+                        <div class="contact_container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="nb_com" style="display:none">9</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='container-fluid'>
+                            <div class='row'>
+                                <form class="form-horizontal" role="form">
+                                    <div class='row'>
+                                        <div class="col-lg-12">
+                                            <div class="titleprghp">
+                                                <span class="prg">Information réservation</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label for="id" class="col-sm-3 control-label">Entrez le numéro de réservation </label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" name="id" id="id" ng-model="reservation.reservation_id">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class="col-lg-12">
+                                            <div class="boutton">
+                                                <div class="col-lg-7 col-md-7 hidden-md hidden-xs"></div>
+                                                <div class="col-lg-1 col-md-1 col-xs-12">
+                                                    <button name="submit" id="cancel" type="reset" value="reset" class="btn btn-default">Cancel <span class="glyphicon glyphicon-remove"></span></button>
+                                                </div>
+                                                <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12">
+                                                    <a class="btn btn-default" ng-click="remove(reservation.reservation_id)"><span class="glyphicon glyphicon-floppy-disk"></span> Enregistrer la suppression <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="titleprghp">
+                                                    <span class="prg">Liste des Réservation</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <table>
+                                                    <tr>
+                                                        <td class="titre">
+                                                            N° reservation
+                                                        </td>
+                                                        <td class="titre">
+                                                            Nom de la personne
+                                                        </td>
+                                                        <td class="titre">
+                                                            nb d'adulte
+                                                        </td>
+                                                        <td class="titre">
+                                                            nb d'enfant
+                                                        </td>
+                                                        <td class="titre">
+                                                            Date d'arrivé
+                                                        </td>
+                                                        <td class="titre">
+                                                            Date de fin
+                                                        </td>
+                                                    </tr>
+                                                    <tr ng-repeat="user in users | filter:{Level: 2}">
+                                                        <td>
+                                                            {{reservation.Id}}
+                                                        </td>
+                                                        <td>
+                                                            {{reservation.Name}}
+                                                        </td>
+                                                        <td>
+                                                            {{reservation.Nbadulte}}
+                                                        </td>
+                                                        <td>
+                                                            {{reservation.Nbchildren}}
+                                                        </td>
+                                                        <td>
+                                                            {{reservation.Startdate}}
+                                                        </td>
+                                                        <td>
+                                                            {{reservation.Enddate}}
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <br />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Modifier réservation -->
+
+<div class="modifier" ng-hide="modifier" ng-class="{}">
+    <div class="row">
+        <div class="col-lg-10 col-md-9">
+            <h1 class="titre-contact">Modifier une réservation</h1>
+        </div>
+    </div>
+    <section id="modifReser">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tableaudebord">
+                        <div class="contact_container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="nb_com" style="display:none">9</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='container-fluid'>
+                            <div class='row'>
+                                <form class="form-horizontal" role="form">
+                                    <div class='row'>
+                                        <div class="col-lg-12">
+                                            <div class="titleprghp">
+                                                <span class="prg">Information de la réservation</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label for="id" class="col-sm-3 control-label">Entrez le numéro de la réservation</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" name="id" id="id" ng-model="reservation.reservation_id">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="boutton">
+                                                <div class="col-lg-7 col-md-7 hidden-md hidden-xs"></div>
+                                                <div class="col-lg-1 col-md-1 col-xs-12">
+                                                    <button name="submit" id="cancel" type="reset" value="reset" class="btn btn-default">Cancel <span class="glyphicon glyphicon-remove"></span></button>
+                                                </div>
+                                                <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12">
+                                                    <a class="btn btn-default" ng-click="affichermodiftoggleBlock(reservation.reservation_id)"><span class="glyphicon glyphicon-floppy-disk"></span> Afficher la réservation à modifier <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <br />
+                                        <br />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="reservationModifier" ng-hide="reservationModifier" ng-class="{}">
+                            <section class="formuReservation">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="titleprghp">
+                                                            <span class="prg">Donnée consernant la réservation</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-2">
+                                                                    Date d'arrivé
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                    <p class="input-group">
+                                                                        <input type="text" class="form-control" show-weeks="true" uib-datepicker-popup="{{format}}" ng-model="dt2" is-open="status.opened2" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                                        <span class="input-group-btn">
+                                                                            <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                                        </span>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <select class="form-control" name="Nb Jour" ng-model="choixJour" ng-options="info.nbJour for info in infoJour"></select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-2">
+                                                                    Type
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                    <select class="form-control" ng-model="choixCampsite" ng-options="info.libel for info in infoCampsite"></select>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <input type="text" class="form-control" id="prixlogement" disabled="disabled" value="{{choixCampsite.prix*choixJour.nbJour}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--<div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <div class="col-sm-2">
+                                                    Date de fin
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <p class="input-group">
+                                                        <input type="text" class="form-control" show-weeks="true" uib-datepicker-popup="{{format}}" ng-model="dt3" is-open="status.opened3" min-date="dt2 | date:'fullDate'" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                        <span class="input-group-btn">
+                                                            <button type="button" class="btn btn-default" ng-click="open3($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-sm-2">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-2">
+                                                                    Nombre d'adulte
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                    <select class="form-control" ng-model="choixNbAdulte" ng-options="info.nbAdulte for info in infoAdulte"></select>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <input type="text" class="form-control" id="prixadulte" disabled="disabled" value="{{choixNbAdulte.prix}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-2">
+                                                                    Nombre d'enfant
+                                                                </div>
+                                                                <div class="col-sm-8">
+                                                                    <select class="form-control" ng-model="choixNbEnfant" ng-options="info.nbEnfant for info in infoEnfant"></select>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <input type="text" class="form-control" id="prixenfant" disabled="disabled" value="{{choixNbEnfant.prix}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-2">
+
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    <input type="checkbox" />
+                                                                </div>
+                                                                <div class="col-sm-9">
+                                                                    Date de fin fléxible (jusqu'à 3 jours)
+                                                                </div>
+                                                                <div class="col-sm-2">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-2">
+
+                                                                </div>
+                                                                <div class="col-sm-4">
+                                                                    Parking pour le véhicule
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <select class="form-control" ng-model="choixParking" ng-options="info.parking for info in infoParking"></select>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <select class="form-control" ng-model="choixNbParking" ng-options="info.nbparking for info in infoNbParking"></select>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <input type="text" class="form-control" id="prixpraking" disabled="disabled" value="{{choixNbParking.prix*choixParking.prix}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group" ng-hide="electrique" ng-class="{}">
+                                                                <div class="col-sm-2">
+
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    Branchement électrique moyennant un forfait journalier de 2€/jour (Attention seulement pour les emplacements)
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <select class="form-control" ng-model="choixElectric" ng-options="info.elec for info in infoElectrique"></select>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <input type="text" class="form-control" id="prixElectrique" disabled="disabled" value="{{choixJour.nbJour * choixElectric.prix}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-1">
+
+                                                                </div>
+                                                                <div class="col-sm-9">
+
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <hr />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-9">
+
+                                                                </div>
+                                                                <div class="col-sm-1">
+                                                                    Montant :
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <input type="text" class="form-control" id="prixtotal" disabled="disabled" value="{{(choixCampsite.prix*choixJour.nbJour) + choixNbAdulte.prix + choixNbEnfant.prix + choixNbParking.prix + (choixJour.nbJour * choixElectric.prix)}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-5">
+
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a href="" class="btn btn-default" ng-click="canceltoggleBlock()">Annuler <span class="glyphicon glyphicon-remove"></span></a>
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <a class="btn btn-success" ng-click="confirmertoggleBlock()">Confirmer Réservation</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<!-- Rechercher un Réservation-->
+<div class="rechercher" ng-hide="rechercher" ng-class="{}">
+    <div class="row">
+        <div class="col-lg-10 col-md-9">
+            <!--    <div class="col-lg-1"><img src="img/ajout_contact.png" alt=""></div>-->
+            <h1 class="titre-contact">Recherche Réservation</h1>
+        </div>
+    </div>
+    <section id="recherche">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tableaudebord">
+                        <div class="contact_container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="nb_com" style="display:none">9</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='container-fluid'>
+                            <div class='row'>
+                                <form class="form-horizontal" role="form">
+                                    <div class='row'>
+                                        <div class="col-lg-12">
+                                            <div class="titleprghp">
+                                                <span class="prg">Information sur la réservation</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label for="id" class="col-sm-2 control-label">Entre le numéro de la réservation à rechercher</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" name="id" id="id" ng-model="user.user_lf">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="boutton">
+                                                <div class="col-lg-7 col-md-7 hidden-md hidden-xs"></div>
+                                                <div class="col-lg-1 col-md-1 col-xs-12">
+                                                    <button name="submit" id="cancel" type="reset" value="reset" class="btn btn-default">Cancel <span class="glyphicon glyphicon-remove"></span></button>
+                                                </div>
+                                                <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12">
+                                                    <a class="btn btn-default" ng-click="get(user.user_lf)"><span class="glyphicons glyphicons-search"></span> Effectuer la recherche <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <br />
+                                        <br />
+                                    </div>
+
+                                    <section class="formuReservation">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="container-fluid">
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="titleprghp">
+                                                                    <span class="prg">Donnée consernant la réservation</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-2">
+                                                                            Date d'arrivé
+                                                                        </div>
+                                                                        <div class="col-sm-8">
+                                                                            <p class="input-group">
+                                                                                <input disabled="disabled" type="text" class="form-control" show-weeks="true" uib-datepicker-popup="{{format}}" ng-model="dt2" is-open="status.opened2" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                                                <span class="input-group-btn">
+                                                                                    <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                                                </span>
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <select class="form-control" disabled="disabled" name="Nb Jour" ng-model="choixJour" ng-options="info.nbJour for info in infoJour"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-2">
+                                                                            Type
+                                                                        </div>
+                                                                        <div class="col-sm-8">
+                                                                            <select disabled="disabled" class="form-control" ng-model="choixCampsite" ng-options="info.libel for info in infoCampsite"></select>
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <input type="text" class="form-control" id="prixlogement" disabled="disabled" value="{{choixCampsite.prix*choixJour.nbJour}}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!--<div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-2">
+                                                                            Date de fin
+                                                                        </div>
+                                                                        <div class="col-sm-8">
+                                                                            <p class="input-group">
+                                                                                <input type="text" class="form-control" show-weeks="true" uib-datepicker-popup="{{format}}" ng-model="dt3" is-open="status.opened3" min-date="dt2 | date:'fullDate'" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                                                <span class="input-group-btn">
+                                                                                    <button type="button" class="btn btn-default" ng-click="open3($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                                                </span>
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>-->
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-2">
+                                                                            Nombre d'adulte
+                                                                        </div>
+                                                                        <div class="col-sm-8">
+                                                                            <select disabled="disabled" class="form-control" ng-model="choixNbAdulte" ng-options="info.nbAdulte for info in infoAdulte"></select>
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            m-
+                                                                            <input type="text" class="form-control" id="prixadulte" disabled="disabled" value="{{choixNbAdulte.prix}}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-2">
+                                                                            Nombre d'enfant
+                                                                        </div>
+                                                                        <div class="col-sm-8">
+                                                                            <select disabled="disabled" class="form-control" ng-model="choixNbEnfant" ng-options="info.nbEnfant for info in infoEnfant"></select>
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <input type="text" class="form-control" id="prixenfant" disabled="disabled" value="{{choixNbEnfant.prix}}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-2">
+
+                                                                        </div>
+                                                                        <div class="col-sm-1">
+                                                                            <input disabled="disabled" type="checkbox" />
+                                                                        </div>
+                                                                        <div class="col-sm-9">
+                                                                            Date de fin fléxible (jusqu'à 3 jours)
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-2">
+
+                                                                        </div>
+                                                                        <div class="col-sm-4">
+                                                                            Parking pour le véhicule
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <select disabled="disabled" class="form-control" ng-model="choixParking" ng-options="info.parking for info in infoParking"></select>
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <select disabled="disabled" class="form-control" ng-model="choixNbParking" ng-options="info.nbparking for info in infoNbParking"></select>
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <input type="text" class="form-control" id="prixpraking" disabled="disabled" value="{{choixNbParking.prix*choixParking.prix}}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group" ng-hide="electrique" ng-class="{}">
+                                                                        <div class="col-sm-2">
+
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            Branchement électrique moyennant un forfait journalier de 2€/jour (Attention seulement pour les emplacements)
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <select class="form-control" disabled="disabled" ng-model="choixElectric" ng-options="info.elec for info in infoElectrique"></select>
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <input type="text" class="form-control" id="prixElectrique" disabled="disabled" value="{{choixJour.nbJour * choixElectric.prix}}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-1">
+
+                                                                        </div>
+                                                                        <div class="col-sm-9">
+
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <hr />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-9">
+
+                                                                        </div>
+                                                                        <div class="col-sm-1">
+                                                                            Montant :
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <input type="text" class="form-control" id="prixtotal" disabled="disabled" value="{{(choixCampsite.prix*choixJour.nbJour) + choixNbAdulte.prix + choixNbEnfant.prix + choixNbParking.prix + (choixJour.nbJour * choixElectric.prix)}}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="titleprghp">
+                                                    <span class="prg">Liste des réservation</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <table>
+                                                    <tr>
+                                                        <td class="titre">
+                                                            Identifiant
+                                                        </td>
+                                                        <td class="titre">
+                                                            Nom
+                                                        </td>
+                                                        <td class="titre">
+                                                            Prénom
+                                                        </td>
+                                                    </tr>
+                                                    <tr ng-repeat="user in users | filter:{Level: 2}">
+                                                        <td>
+                                                            {{user.Id}}
+                                                        </td>
+                                                        <td>
+                                                            {{user.Name}}
+                                                        </td>
+                                                        <td>
+                                                            {{user.Surname}}
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<br />
+<br />
+<br />

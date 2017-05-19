@@ -1,0 +1,438 @@
+﻿<section class="formuReservation">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="titleprghp">
+                                <span class="prg">Donnée consernant la réservation</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                        Date d'arrivé
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p class="input-group">
+                                            <input type="text" class="form-control" show-weeks="true" uib-datepicker-popup="{{format}}" ng-model="dt2" is-open="status.opened2" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" name="Nb Jour" ng-model="choixJour" ng-options="info.nbJour for info in infoJour"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                        Type
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" ng-model="choixCampsite" ng-options="info.libel for info in infoCampsite"></select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="prixlogement" disabled="disabled" value="{{choixCampsite.prix*choixJour.nbJour}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--<div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                        Date de fin
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p class="input-group">
+                                            <input type="text" class="form-control" show-weeks="true" uib-datepicker-popup="{{format}}" ng-model="dt3" is-open="status.opened3" min-date="dt2 | date:'fullDate'" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                            <span class="input-group-btn">
+                                                <button type="button" class="btn btn-default" ng-click="open3($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                        Nombre d'adulte
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" ng-model="choixNbAdulte" ng-options="info.nbAdulte for info in infoAdulte"></select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="prixadulte" disabled="disabled" value="{{choixNbAdulte.prix}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                        Nombre d'enfant
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" ng-model="choixNbEnfant" ng-options="info.nbEnfant for info in infoEnfant"></select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="prixenfant" disabled="disabled" value="{{choixNbEnfant.prix}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                        
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <input type="checkbox" />
+                                    </div>
+                                    <div class="col-sm-9">
+                                        Date de fin fléxible (jusqu'à 3 jours)
+                                    </div>
+                                    <div class="col-sm-2">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                        
+                                    </div>
+                                    <div class="col-sm-4">
+                                        Parking pour le véhicule 
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" ng-model="choixParking" ng-options="info.parking for info in infoParking"></select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" ng-model="choixNbParking" ng-options="info.nbparking for info in infoNbParking"></select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="prixpraking" disabled="disabled" value="{{choixNbParking.prix*choixParking.prix}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group" ng-hide="electrique" ng-class="{}">
+                                    <div class="col-sm-2">
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        Branchement électrique moyennant un forfait journalier de 2€/jour (Attention seulement pour les emplacements)
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select class="form-control" ng-model="choixElectric" ng-options="info.elec for info in infoElectrique"></select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="prixElectrique" disabled="disabled" value="{{choixJour.nbJour * choixElectric.prix}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="col-sm-1">
+
+                                    </div>
+                                    <div class="col-sm-9">
+
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <hr />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+
+                                    </div>
+                                    <div class="col-sm-1">
+                                        Montant :
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" id="prixtotal" disabled="disabled" value="{{(choixCampsite.prix*choixJour.nbJour) + choixNbAdulte.prix + choixNbEnfant.prix + choixNbParking.prix + (choixJour.nbJour * choixElectric.prix)}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="col-sm-5">
+
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a href="#/accommodation" class="btn btn-default" ng-click="canceltoggleBlock()">Annuler <span class="glyphicon glyphicon-remove"></span></a>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a class="btn btn-success" ng-click="confirmertoggleBlock()">Confirmer Réservation</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="connectionreservation" ng-hide="connectionreservation" ng-class="{}">
+                            <div class="col-lg-12">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <div class="col-sm-6">
+                                                    <a class="btn btn-default" ng-click="inscriptiontoggleBlock()">Inscription</a>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <a class="btn btn-default" ng-click="connexiontoggleBlock()">Connection</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="formuConnection" ng-hide="formuConnection" ng-class="{}">
+    <div class="col-lg-12">
+        <div class="titleprghp">
+            <span class="prg">Connexion</span>
+        </div>
+    </div>
+    <form class="form-horizontal" name="registerForm" ng-controller="loginController" novalidate>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Email.$invalid, 'has-success': registerForm.Email.$valid}">
+            <label class="col-sm-1 control-label" for="email">Email</label>
+            <div class="col-sm-9">
+                <input id="email" type="email" class="form-control" required name="email" ng-model="user.user_email" />
+            </div>
+        </div>
+        <div class="form-group" ng-class="{'has-error': registerForm.$dirty && registerForm.Password.$invalid, 'has-success': registerForm.Password.$valid}">
+            <label class="col-sm-1 control-label" for="password">Password</label>
+            <div class="col-sm-9">
+                <input id="password" type="password" class="form-control" required ng-minlength="2" name="password" ng-model="user.user_password" />
+            </div> <span class="text-danger col-sm-offset-3" ng-show="registerForm.Password.$error.minlength">
+                Mot de passe trop court pour être valide
+            </span>
+
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-10">
+                <button name="submit" id="cancel" type="reset" value="reset" class="btn btn-default" ng-click="cancelConnectiontoggleBlock()">Annuler <span class="glyphicon glyphicon-remove"></span></button>
+                <input class="btn btn-success" value="Se connecter" ng-disabled="registerForm.$invalid" ng-click="login()" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<br />
+
+<div class="formuajouter" ng-hide="formuajouter" ng-class="{}">
+    <div class="row">
+        <div class="col-lg-10 col-md-9">
+            <!--    <div class="col-lg-1"><img src="img/ajout_contact.png" alt=""></div>-->
+            <h1 class="titre-contact">Formulaire d'inscription</h1>
+        </div>
+    </div>
+    <!--  </div>-->
+    <section id="ajout">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tableaudebord">
+                        <div class="contact_container">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="nb_com" style="display:none">9</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='container-fluid'>
+                            <div class='row'>
+                                <form class="form-horizontal" role="form">
+                                    <div class='row'>
+                                        <div class="col-lg-12">
+                                            <div class="titleprghp">
+                                                <span class="prg">Coordonnées</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='row'>
+                                        <div class="col-lg-6">
+                                            <!--<form class="form-horizontal" role="form">-->
+                                            <div class="form-group">
+                                                <label for="origine" class="col-sm-2 control-label">Civilité</label>
+                                                <div class="col-sm-8">
+                                                    <select class="form-control">
+                                                        <option>Choisissez</option>
+                                                        <option>Célibataire</option>
+                                                        <option>Marié</option>
+                                                        <option>Divorcé</option>
+                                                        <option>Veuf</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="nom" class="col-sm-2 control-label">Nom</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" name="name" id="name" ng-model="user.user_name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="prenom" class="col-sm-2 control-label">Prénom</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" name="surname" id="surname" ng-model="user.user_surname">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="mail" class="col-sm-2 control-label">Email</label>
+                                                <div class="col-sm-8">
+                                                    <input type="email" class="form-control" name="email" id="email" ng-model="user.user_email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tel" class="col-sm-2 control-label">Téléphone</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" name="tel" id="tel" ng-model="user.user_phone">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+
+                                            <div class="form-group">
+                                                <label for="adresse" class="col-sm-2 control-label">Adresse</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" name="adresse" id="adresse" ng-model="user.user_address">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cp" class="col-sm-2 control-label">Code Postal</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" name="cp" id="cp" ng-model="user.user_zipCode">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="ville" class="col-sm-2 control-label">Ville</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" name="ville" class="form-control" id="ville" ng-model="user.user_city">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="pays" class="col-sm-2 control-label">Pays code</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" maxlength="3" class="form-control" name="pays" id="pays" ng-model="user.user_country">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="birthday" class="col-sm-2 control-label">Date de naissance </label>
+                                                <div ng-controller="DatepickerDemoCtrl">
+                                                    {{user.user_birthdate}}
+                                                    <div class="col-md-8">
+                                                        <p class="input-group">
+                                                            <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="$parent.user.user_birthdate" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                                            <span class="input-group-btn">
+                                                                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class='container-fluid'>
+                                        <div class='row'>
+                                            <form class="form-horizontal" role="form" />
+                                            <div class='row'>
+                                                <div class="col-lg-12">
+                                                    <div class="titleprghp">
+                                                        <span class="prg">Création du compte</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label for="nomuser" class="col-sm-2 control-label">Nom d'utilisateur</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" name="nameuser" id="nameuser" ng-model="user.user_username">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="password" class="col-sm-2 control-label">Mot de passe</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="password" class="form-control" name="password" id="password" ng-model="user.user_password">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="passwordrepete" class="col-sm-2 control-label">Répéter mot de passe</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="password" class="form-control" name="passwordrepete" id="passwordrepete">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="boutton">
+                                                <div class="col-lg-7 col-md-7 hidden-md hidden-xs"></div>
+                                                <div class="col-lg-1 col-md-1 col-xs-12">
+                                                    <button name="submit" id="cancel" type="reset" value="reset" class="btn btn-default" ng-click="cancelConnectiontoggleBlock()">Annuler <span class="glyphicon glyphicon-remove"></span></button>
+                                                </div>
+                                                <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1 col-xs-12">
+                                                    <a class="btn btn-default" ng-click="add()"><span class="glyphicon glyphicon-floppy-disk"></span> Enregistrer <span class="glyphicon glyphicon-chevron-right"></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <br />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</div>
+<br />
+<br />
+
+

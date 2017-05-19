@@ -1,0 +1,85 @@
+﻿<br />
+<br />
+<div class="fondaccueil">
+    <img src="../IMAGES/font/bienvenue.png" />
+    <div class="reservation" ng-controller="DatepickerDemoCtrl">
+        <div class="row" id="rowReservation">
+            <div class="col-lg-12">
+                <!--<form class="form-horizontal" role="form">-->
+                
+                    <div class="col-sm-3">
+                        <select class="form-control">
+                            <option>Tous</option>
+                            <option>Tentes</option>
+                            <option>Chalet</option>
+                            <option>Chalets Perchés</option>
+                            <option>Emplacement</option>
+                        </select>
+                    </div>
+                
+
+                <div class="col-sm-3">
+                    <p class="input-group">
+                        <input type="text" class="form-control" show-weeks="true" uib-datepicker-popup="{{format}}" ng-model="dt2" is-open="status.opened2" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+
+                <div class="col-sm-3">
+                    <p class="input-group">
+                        <input type="text" class="form-control" show-weeks="true" uib-datepicker-popup="{{format}}" ng-model="dt3" is-open="status.opened3" min-date="dt2 | date:'fullDate'" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open3($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+
+                
+                    <div class="col-sm-2">
+                        <select class="form-control">
+                            <option>Nbr de personne</span></option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>6</option>
+                            <option>8</option>
+                            <option>10</option>
+                        </select>
+                    </div>
+                
+
+                
+                    <div class="col-sm-1">
+                        <a class="btn btn-success" ng-click="add()"><span class="glyphicons glyphicons-ok-2"></span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+    <section id="accueil">
+        <!--well-being-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+
+                        <div class="block wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
+
+                            <div ng-controller="MainAccueil">
+                                <data-owl-carousel class="owl-carousel" data-options="{navigation: false, pagination: true, rewindNav : false}">
+                                    <div owl-carousel-item="" ng-repeat="item in items" class="item.image">
+                                        <p><img height="220" width="300" src="{{item.image}}"></p>
+                                    </div>
+                                </data-owl-carousel>
+                                <div class="block">
+                                    <p class="wow fadeInUp" data-wow-duration="300ms" data-wow-delay="600ms"></p>
+                                </div>
+                            </div>
+                        </div>
+                </div><!--.col-md-12 close -->
+            </div><!-- .row close -->
+         </div><!--.container close -->
+    </section><!-- slider close -->
+</div>

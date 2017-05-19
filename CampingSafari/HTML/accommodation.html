@@ -1,0 +1,154 @@
+﻿<br />
+<br />
+<div class="fondAccommodation">
+    <section id="choix">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-sm-6" id="image">
+                        <a href="" scroll-to="attempted" id="image2"><img src="../IMAGES/tentes/tente.jpg" /></a>
+                    </div>
+                    <div class="col-sm-6" id="image">
+                        <a href="" scroll-to="chalet" id="image2"><img src="../IMAGES/chalet/chalet.jpg" /></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-sm-6" id="image">
+                        <a href="" scroll-to="hilltop_cottage" id="image2"><img src="../IMAGES/chaletPerche/chaletperche.jpg" /></a>
+                    </div>
+                    <div class="col-sm-6" id="image">
+                        <a href="" scroll-to="location" id="image2"><img src="../IMAGES/emplacement/emplacement.jpg" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br />
+    <br />
+    <br />
+
+
+    <section id="attempted">
+        <div class="title">
+            <h3><span>Les tentes</span></h3>
+        </div>
+        <div ng-repeat="campsite in campsites | filter:{Category:'Tente'}">
+            <table id="chalet1">
+                <tr>
+                    <td>
+                        <img src="../IMAGES/tentes/tente1.jpg" />
+                    </td>
+                    <td>
+                        Numéro : {{campsite.Numero}} <br />
+                        Zone : {{campsite.Zone}} <br />
+                        Nombre de Personne : {{campsite.NbPersonne}} <br />
+                        Prix : {{campsite.Prize}} <br />
+
+                    </td>
+                    <td>
+                        <a href="#/reservation" class="btn"><img src="../IMAGES/logo/rouge.jpg" /></a>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+        </div>
+    </section>
+    <br />
+    <br />
+    <br />
+
+    <section id="chalet">
+        <div class="title">
+            <h3><span>Les chalets</span></h3>
+        </div>
+        <div ng-repeat="campsite in campsites | filter:{Category:'Chalet'}">
+            <table id="chalet1">
+                <tr>
+                    <td>
+                        <img src="../IMAGES/chalet/chalet1.jpg" />
+                    </td>
+                    <td>
+                        Numéro : {{campsite.Numero}} <br />
+                        Zone : {{campsite.Zone}} <br />
+                        Nombre de Personne : {{campsite.NbPersonne}} <br />
+                        Prix : {{campsite.Prix}} <br />
+                        
+                    </td>
+                    <td>
+                        <a href="#/reservation" class="btn"><img src="../IMAGES/logo/rouge.jpg" /></a>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+        </div>
+        
+    </section>
+    <br />
+    <br />
+    <br />
+
+    <section id="hilltop_cottage">
+        <div class="title">
+            <h3><span>Les chalets perchés</span></h3>
+        </div>
+        <div ng-repeat="campsite in campsites | filter:{Category:'Perche'}">
+            <table id="chalet1">
+                <tr>
+                    <td>
+                        <img src="../IMAGES/chaletPerche/chaletperche2.jpg" />
+                    </td>
+                    <td>
+                        Numéro : {{campsite.Numero}} <br />
+                        Zone : {{campsite.Zone}} <br />
+                        Nombre de Personne : {{campsite.NbPersonne}} <br />
+                        Prix : {{campsite.Prix}} <br />
+
+                    </td>
+                    <td>
+                        <a href="#/reservation" class="btn"><img src="../IMAGES/logo/rouge.jpg" /></a>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+        </div>
+    </section>
+    <br />
+    <br />
+    <br />
+
+    <section id="location">
+        <div class="title">
+            <h3><span>Les emplacements</span></h3>
+        </div>
+        <div ng-repeat="campsite in campsites | filter:{Category:'Emplacement'}">
+            <table id="chalet1">
+                <tr>
+                    <td>
+                        <img src="../IMAGES/emplacement/emplacement1.jpg" />
+                    </td>
+                    <td>
+                        Numéro : {{campsite.Numero}} <br />
+                        Zone : {{campsite.Zone}} <br />
+                        Nombre de Personne : {{campsite.NbPersonne}} <br />
+                        Prix : {{campsite.Prix}} <br />
+
+                    </td>
+                    <td>
+                        <a href="#/reservation" class="btn"><img src="../IMAGES/logo/rouge.jpg" /></a>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+        </div>
+    </section>
+    <br />
+    <br />
+    <br />
+</div>
+
